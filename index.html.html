@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jickson Freile · Marketing Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070d1a;
+    --panel:#0f1b2e;
+    --panel-alt:#142238;
+    --accent:#2f6fff;
+    --accent-2:#5aa1ff;
+    --accent-soft:rgba(47,111,255,.14);
+    --cyan:#4fd1e0;
+    --whatsapp:#25d366;
+    --whatsapp-dark:#1eb356;
+    --text:#edf2f7;
+    --muted:#8fa0b5;
+    --border:rgba(255,255,255,.08);
+    --radius:18px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Sora',sans-serif;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--accent); color:#fff;}
+  :focus-visible{outline:2px solid var(--cyan); outline-offset:3px;}
+
+  /* background texture */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background:
+      radial-gradient(circle at 15% 8%, rgba(47,111,255,.16), transparent 42%),
+      radial-gradient(circle at 88% 18%, rgba(79,209,224,.10), transparent 40%),
+      radial-gradient(circle at 50% 100%, rgba(47,111,255,.10), transparent 45%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(7,13,26,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:74px;
+  }
+  .logo{display:flex; align-items:center; gap:12px;}
+  .logo-mark{
+    width:40px; height:40px; border-radius:10px;
+    background:linear-gradient(145deg,var(--accent),#1a3fa8);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Sora',sans-serif; font-weight:800; font-size:18px;
+    box-shadow:0 6px 18px rgba(47,111,255,.35);
+  }
+  .logo-text{line-height:1.1;}
+  .logo-text strong{display:block; font-family:'Sora',sans-serif; font-weight:700; font-size:15px; letter-spacing:.02em;}
+  .logo-text span{display:block; font-size:11px; color:var(--muted); letter-spacing:.14em; text-transform:uppercase;}
+  .nav-links{display:flex; align-items:center; gap:34px;}
+  .nav-links a{font-size:14px; color:var(--muted); font-weight:500; transition:color .2s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    display:flex; align-items:center; gap:8px;
+    background:var(--whatsapp); color:#04250f; font-weight:700; font-size:13.5px;
+    padding:10px 18px; border-radius:100px;
+    box-shadow:0 6px 20px rgba(37,211,102,.28);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .nav-cta:hover{transform:translateY(-1px); box-shadow:0 8px 26px rgba(37,211,102,.4);}
+  @media (max-width:760px){ .nav-links{display:none;} }
+
+  section{position:relative; z-index:1;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:96px 0 70px; text-align:center;}
+  .badge{
+    position:relative;
+    width:118px; height:118px; margin:0 auto 34px;
+    border-radius:28px;
+    background:linear-gradient(150deg, var(--panel-alt), var(--panel));
+    border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Sora',sans-serif; font-weight:800; font-size:42px;
+    color:#fff;
+  }
+  .badge::after{
+    content:""; position:absolute; inset:-18px; border-radius:36px;
+    border:1px solid rgba(47,111,255,.35);
+    animation:breathe 3.4s ease-in-out infinite;
+  }
+  @keyframes breathe{
+    0%,100%{ transform:scale(1); opacity:.55;}
+    50%{ transform:scale(1.08); opacity:.15;}
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:600; color:var(--cyan);
+    letter-spacing:.08em; text-transform:uppercase;
+    background:rgba(79,209,224,.09); border:1px solid rgba(79,209,224,.25);
+    padding:7px 16px; border-radius:100px; margin-bottom:26px;
+  }
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--cyan); animation:pulse 1.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.25;}}
+  .hero h1{
+    font-size:clamp(32px,5vw,58px);
+    font-weight:800; line-height:1.08;
+    max-width:900px; margin:0 auto 22px;
+  }
+  .hero h1 .hl{ color:var(--accent-2); }
+  .hero p.lead{
+    max-width:560px; margin:0 auto 38px;
+    color:var(--muted); font-size:17px;
+  }
+  .cta-row{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:52px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'Inter',sans-serif; font-weight:700; font-size:15px;
+    padding:15px 28px; border-radius:100px; border:1px solid transparent;
+    cursor:pointer; transition:transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn-primary{background:var(--whatsapp); color:#04250f; box-shadow:0 10px 30px rgba(37,211,102,.28);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 34px rgba(37,211,102,.4);}
+  .btn-ghost{background:transparent; border-color:var(--border); color:var(--text);}
+  .btn-ghost:hover{background:var(--panel); border-color:rgba(255,255,255,.18);}
+
+  .pillars{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    max-width:720px; margin:0 auto; border-top:1px solid var(--border); padding-top:34px;
+  }
+  .pillar{display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .pillar svg{width:26px; height:26px; color:var(--accent-2);}
+  .pillar span{font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:600;}
+  @media (max-width:600px){ .pillars{grid-template-columns:repeat(2,1fr); row-gap:26px;} }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section-head{max-width:640px; margin:0 auto 56px; text-align:center;}
+  .section-head .eyebrow{margin-bottom:18px;}
+  .section-head h2{font-size:clamp(26px,3.6vw,38px); font-weight:800; margin-bottom:14px;}
+  .section-head p{color:var(--muted); font-size:16px;}
+
+  /* ---------- SERVICES ---------- */
+  .services{padding:100px 0 40px;}
+  .service-grid{
+    position:relative;
+    display:grid; grid-template-columns:1fr 1fr; gap:26px;
+    counter-reset:svc;
+  }
+  .rail{
+    position:absolute; left:50%; top:0; bottom:0; width:1px;
+    background:repeating-linear-gradient(to bottom, rgba(47,111,255,.4) 0 6px, transparent 6px 14px);
+    transform:translateX(-50%);
+  }
+  @media (max-width:820px){ .service-grid{grid-template-columns:1fr;} .rail{display:none;} }
+
+  .card{
+    background:linear-gradient(160deg, var(--panel-alt), var(--panel));
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:32px 30px 28px;
+    opacity:0; transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease, border-color .25s;
+  }
+  .card.in-view{opacity:1; transform:translateY(0);}
+  .card:hover{border-color:rgba(47,111,255,.4);}
+  .card-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;}
+  .num{
+    font-family:'Sora',sans-serif; font-weight:800; font-size:13px;
+    color:var(--accent-2); background:var(--accent-soft);
+    padding:6px 12px; border-radius:100px; letter-spacing:.05em;
+  }
+  .svc-icon{width:34px; height:34px; color:var(--cyan);}
+  .card h3{font-size:19px; font-weight:700; margin-bottom:6px;}
+  .card h3 span{display:block; color:var(--accent-2); font-size:21px;}
+  .card > p.desc{color:var(--muted); font-size:14px; margin-bottom:18px;}
+  .includes-label{font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); font-weight:700; margin-bottom:10px;}
+  .check-list{display:grid; gap:9px; margin-bottom:22px;}
+  .check-list li{display:flex; gap:10px; font-size:14px; color:#dbe4ee;}
+  .check-list svg{flex:none; width:16px; height:16px; margin-top:2px; color:var(--whatsapp);}
+  .benefit{
+    display:flex; gap:10px; align-items:flex-start;
+    background:rgba(47,111,255,.08); border:1px solid rgba(47,111,255,.2);
+    border-radius:12px; padding:12px 14px; font-size:13px; color:#cfe0ff; margin-bottom:20px;
+  }
+  .benefit svg{flex:none; width:16px; height:16px; color:var(--accent-2); margin-top:1px;}
+  .card-cta{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  .card-cta .phone{font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:8px;}
+  .card-cta .phone svg{width:15px; height:15px; color:var(--whatsapp);}
+  .mini-btn{
+    font-size:12.5px; font-weight:700; padding:9px 16px; border-radius:100px;
+    background:var(--accent); color:#fff;
+    transition:transform .2s, background .2s;
+  }
+  .mini-btn:hover{background:var(--accent-2); transform:translateY(-1px);}
+
+  /* ---------- WHY ---------- */
+  .why{padding:100px 0;}
+  .why-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+  @media (max-width:820px){ .why-grid{grid-template-columns:1fr;} }
+  .why-list li{
+    display:flex; gap:14px; align-items:flex-start;
+    padding:16px 0; border-bottom:1px solid var(--border);
+  }
+  .why-list li:last-child{border-bottom:none;}
+  .why-list svg{flex:none; width:20px; height:20px; color:var(--cyan); margin-top:2px;}
+  .why-list strong{font-size:15.5px; font-weight:600;}
+  .quote-card{
+    background:linear-gradient(160deg, var(--panel-alt), var(--panel));
+    border:1px solid var(--border); border-radius:22px;
+    padding:44px 38px; position:relative;
+  }
+  .quote-mark{font-family:'Sora',sans-serif; font-size:56px; color:var(--accent); line-height:1; margin-bottom:12px; display:block;}
+  .quote-card p{font-size:22px; font-weight:600; font-family:'Sora',sans-serif; margin-bottom:22px; line-height:1.4;}
+  .signature{font-family:'Caveat',cursive; font-size:30px; color:var(--accent-2);}
+
+  /* ---------- DIAGNOSTIC FORM ---------- */
+  .diag{padding:100px 0;}
+  .diag-panel{
+    max-width:640px; margin:0 auto;
+    background:linear-gradient(160deg, var(--panel-alt), var(--panel));
+    border:1px solid var(--border); border-radius:24px;
+    padding:46px 40px;
+  }
+  @media (max-width:560px){ .diag-panel{padding:34px 24px;} }
+  .diag-panel h2{font-size:26px; font-weight:800; margin-bottom:10px; text-align:center;}
+  .diag-panel > p{color:var(--muted); text-align:center; font-size:14.5px; margin-bottom:30px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:12.5px; font-weight:600; color:var(--muted); margin-bottom:7px; letter-spacing:.03em;}
+  .field input, .field select{
+    width:100%; background:var(--bg); border:1px solid var(--border);
+    color:var(--text); font-family:'Inter',sans-serif; font-size:14.5px;
+    padding:13px 15px; border-radius:10px; transition:border-color .2s;
+  }
+  .field input:focus, .field select:focus{border-color:var(--accent); outline:none;}
+  .diag-panel .btn{width:100%; justify-content:center; margin-top:8px; font-size:15.5px;}
+  .diag-note{font-size:12px; color:var(--muted); text-align:center; margin-top:16px;}
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{padding:80px 0 50px; border-top:1px solid var(--border); margin-top:20px;}
+  .foot-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap;
+    margin-bottom:54px;
+  }
+  .foot-contact ul{display:grid; gap:14px;}
+  .foot-contact li{display:flex; align-items:center; gap:12px; font-size:14.5px; color:#dbe4ee;}
+  .foot-contact svg{width:17px; height:17px; color:var(--accent-2);}
+  .foot-cta h3{font-size:22px; font-weight:800; margin-bottom:16px; max-width:280px;}
+  .foot-pillars{
+    display:flex; gap:34px; flex-wrap:wrap; border-top:1px solid var(--border); padding-top:30px;
+  }
+  .foot-pillars .pillar{flex-direction:row; gap:8px;}
+  .foot-pillars .pillar svg{width:18px; height:18px;}
+  .foot-pillars span{font-size:11.5px;}
+  .foot-bottom{margin-top:36px; font-size:12.5px; color:var(--muted); text-align:center;}
+
+  /* floating whatsapp */
+  .float-wa{
+    position:fixed; right:22px; bottom:22px; z-index:60;
+    width:58px; height:58px; border-radius:50%;
+    background:var(--whatsapp); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 28px rgba(37,211,102,.4);
+    animation:float-pulse 2.6s ease-in-out infinite;
+  }
+  .float-wa svg{width:28px; height:28px; color:#04250f;}
+  @keyframes float-pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+    .card{opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">
+      <div class="logo-mark">JF</div>
+      <div class="logo-text">
+        <strong>JICKSON FREILE</strong>
+        <span>Marketing Digital</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#por-que">Por qué trabajar conmigo</a>
+      <a href="#diagnostico">Diagnóstico gratis</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/573018638831?text=Hola%20Jickson%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios%20de%20marketing%20digital" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.14-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.89 1.05.93 1.93 1.22 2.21 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.81.86.28.14.46.21.52.32.07.12.07.66-.17 1.34z"/></svg>
+      WhatsApp
+    </a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="badge">JF</div>
+    <div class="eyebrow"><span class="dot"></span> Diagnóstico gratuito de marketing digital</div>
+    <h1>Estrategias que <span class="hl">conectan</span>, contenidos que <span class="hl">venden</span> y resultados que <span class="hl">crecen</span>.</h1>
+    <p class="lead">Ayudo a marcas y negocios a vender más en redes sociales con anuncios bien medidos, tiendas que funcionan y procesos automatizados. Todo empieza con un diagnóstico gratuito de tu situación actual.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#diagnostico">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.14-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.89 1.05.93 1.93 1.22 2.21 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.81.86.28.14.46.21.52.32.07.12.07.66-.17 1.34z"/></svg>
+        Quiero mi diagnóstico gratis
+      </a>
+      <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg>
+        <span>Estrategia</span>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 1 0 9 9c0-1-.7-1.6-1.6-1.6h-2.2A2.2 2.2 0 0 1 15 8.2V6.6C15 4.6 13.7 3 12 3Z"/><circle cx="7.5" cy="12" r="1.1"/><circle cx="9.5" cy="8" r="1.1"/><circle cx="14.5" cy="16.5" r="1.1"/></svg>
+        <span>Creatividad</span>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></svg>
+        <span>Tecnología</span>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15v-4M12 15V7M17 15v-7"/></svg>
+        <span>Resultados</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Catálogo de servicios</div>
+      <h2>Todo lo que tu negocio necesita para vender más en digital</h2>
+      <p>Ocho frentes de trabajo, un mismo objetivo: que tu marca conecte, convierta y crezca de forma medible.</p>
+    </div>
+
+    <div class="service-grid" id="grid">
+      <div class="rail"></div>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="num">01</span>
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11v2a2 2 0 0 0 2 2h1l3 4V5L6 9H5a2 2 0 0 0-2 2Z"/><path d="M15 8a4 4 0 0 1 0 8M18 5a8 8 0 0 1 0 14"/></svg>
+        </div>
+        <h3>Gestión de <span>Meta Ads</span></h3>
+        <p class="desc">Campañas efectivas en Facebook e Instagram para atraer más clientes y aumentar tus ventas.</p>
+        <div class="includes-label">¿Qué incluye?</div>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Investigación del mercado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Estrategia de campañas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Segmentación avanzada</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Optimización diaria y reportes</li>
+        </ul>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15v-4M12 15V7M17 15v-7"/></svg>
+          Más clientes, más ventas y mejor retorno de inversión.
+        </div>
+        <div class="card-cta">
+          <span class="phone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2z"/></svg>301 863 8831</span>
+          <a class="mini-btn" href="https://wa.me/573018638831?text=Hola%20Jickson%2C%20quiero%20informaci%C3%B3n%20sobre%20Gesti%C3%B3n%20de%20Meta%20Ads" target="_blank" rel="noopener">Escríbeme ahora</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="num">02</span>
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 4 3 12l5 8M16 4l5 8-5 8"/></svg>
+        </div>
+        <h3>Configuración de <span>Meta Pixel y Conversion API</span></h3>
+        <p class="desc">Medimos cada acción en tu sitio web para optimizar campañas y mejorar tus resultados.</p>
+        <div class="includes-label">¿Qué incluye?</div>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Instalación de Meta Pixel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Configuración de Conversion API</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Eventos personalizados y seguimiento de compras</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Formularios, leads y WhatsApp</li>
+        </ul>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15v-4M12 15V7M17 15v-7"/></svg>
+          Datos reales para tomar decisiones inteligentes.
+        </div>
+        <div class="card-cta">
+          <span class="phone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2z"/></svg>301 863 8831</span>
+          <a class="mini-btn" href="https://wa.me/573018638831?text=Hola%20Jickson%2C%20quiero%20informaci%C3%B3n%20sobre%20Meta%20Pixel%20y%20Conversion%20API" target="_blank" rel="noopener">Escríbeme ahora</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="num">03</span>
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 9h18M3 15h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/></svg>
+        </div>
+        <h3>Administración de <span>WordPress</span></h3>
+        <p class="desc">Mantenemos tu sitio web rápido, seguro y siempre actualizado.</p>
+        <div class="includes-label">¿Qué incluye?</div>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Actualizaciones y copias de seguridad</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Optimización de velocidad y seguridad</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Corrección de errores</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Mejoras continuas y soporte técnico</li>
+        </ul>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15v-4M12 15V7M17 15v-7"/></svg>
+          Sitio web profesional, seguro y siempre disponible.
+        </div>
+        <div class="card-cta">
+          <span class="phone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2z"/></svg>301 863 8831</span>
+          <a class="mini-btn" href="https://wa.me/573018638831?text=Hola%20Jickson%2C%20quiero%20informaci%C3%B3n%20sobre%20Administraci%C3%B3n%20de%20WordPress" target="_blank" rel="noopener">Escríbeme ahora</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="num">04</span>
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h2l2.4 11.2A2 2 0 0 0 9.35 19h7.3a2 2 0 0 0 1.95-1.6L20 8H6"/><circle cx="9.5" cy="21" r="1"/><circle cx="17.5" cy="21" r="1"/></svg>
+        </div>
+        <h3>Administración de <span>WooCommerce</span></h3>
+        <p class="desc">Creamos y gestionamos tiendas online optimizadas para vender más.</p>
+        <div class="includes-label">¿Qué incluye?</div>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Configuración de la tienda</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Carga de productos y variaciones</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Pasarelas de pago y métodos de envío</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Cupones, descuentos y fichas optimizadas</li>
+        </ul>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15v-4M12 15V7M17 15v-7"/></svg>
+          Tienda funcional y segura, lista para vender 24/7.
+        </div>
+        <div class="card-cta">
+          <span class="phone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2z"/></svg>301 863 8831</span>
+          <a class="mini-btn" href="https://wa.me/573018638831?text=Hola%20Jickson%2C%20quiero%20informaci%C3%B3n%20sobre%20Administraci%C3%B3n%20de%20WooCommerce" target="_blank" rel="noopener">Escríbeme ahora</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="num">05</span>
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+        </div>
+        <h3>Automatización <span>de procesos</span></h3>
+        <p class="desc">Conectamos tus herramientas y automatizamos tareas repetitivas para ahorrar tiempo.</p>
+        <div class="includes-label">¿Qué incluye?</div>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Automatización con formularios y correos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Integración con WhatsApp</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Flujos de clientes y seguimiento</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Recordatorios y automatización comercial</li>
+        </ul>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15v-4M12 15V7M17 15v-7"/></svg>
+          Más tiempo para lo importante, procesos más eficientes.
+        </div>
+        <div class="card-cta">
+          <span class="phone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2z"/></svg>301 863 8831</span>
+          <a class="mini-btn" href="https://wa.me/573018638831?text=Hola%20Jickson%2C%20quiero%20informaci%C3%B3n%20sobre%20Automatizaci%C3%B3n%20de%20procesos" target="_blank" rel="noopener">Escríbeme ahora</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="num">06</span>
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg>
+        </div>
+        <h3>SEO básico · <span>posicionamiento web</span></h3>
+        <p class="desc">Mejoramos la visibilidad de tu sitio en Google y atraemos tráfico orgánico de calidad.</p>
+        <div class="includes-label">¿Qué incluye?</div>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Investigación de palabras clave</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Optimización de títulos y descripciones</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>SEO técnico y de velocidad</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Optimización de imágenes y auditoría</li>
+        </ul>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15v-4M12 15V7M17 15v-7"/></svg>
+          Más visibilidad en Google y más visitas orgánicas.
+        </div>
+        <div class="card-cta">
+          <span class="phone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2z"/></svg>301 863 8831</span>
+          <a class="mini-btn" href="https://wa.me/573018638831?text=Hola%20Jickson%2C%20quiero%20informaci%C3%B3n%20sobre%20SEO%20b%C3%A1sico" target="_blank" rel="noopener">Escríbeme ahora</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="num">07</span>
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.5 5.5l2.5 2.5M18.5 5.5l-2.5 2.5M5.5 18.5l2.5-2.5M18.5 18.5l-2.5-2.5"/></svg>
+        </div>
+        <h3>Inteligencia artificial <span>para empresas</span></h3>
+        <p class="desc">Implementamos soluciones con IA para optimizar procesos, ahorrar tiempo y aumentar resultados.</p>
+        <div class="includes-label">¿Qué incluye?</div>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Atención al cliente automatizada</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Creación de contenido con IA</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Análisis de datos e insights</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Asistentes inteligentes</li>
+        </ul>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15v-4M12 15V7M17 15v-7"/></svg>
+          Reduce tiempos operativos y mejora la experiencia del cliente.
+        </div>
+        <div class="card-cta">
+          <span class="phone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2z"/></svg>301 863 8831</span>
+          <a class="mini-btn" href="https://wa.me/573018638831?text=Hola%20Jickson%2C%20quiero%20informaci%C3%B3n%20sobre%20IA%20para%20empresas" target="_blank" rel="noopener">Escríbeme ahora</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <span class="num">08</span>
+          <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/><path d="M12 3v2M12 19v2"/></svg>
+        </div>
+        <h3>Asesoría estratégica <span>para tu negocio</span></h3>
+        <p class="desc">Te acompaño en la toma de decisiones para que lleves tu negocio al siguiente nivel.</p>
+        <div class="includes-label">¿Qué incluye?</div>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Consultoría personalizada</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Estrategias a la medida</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Acompañamiento continuo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Soporte técnico prioritario</li>
+        </ul>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15v-4M12 15V7M17 15v-7"/></svg>
+          Estrategias efectivas, decisiones acertadas y crecimiento sostenible.
+        </div>
+        <div class="card-cta">
+          <span class="phone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2z"/></svg>301 863 8831</span>
+          <a class="mini-btn" href="https://wa.me/573018638831?text=Hola%20Jickson%2C%20quiero%20informaci%C3%B3n%20sobre%20Asesor%C3%ADa%20estrat%C3%A9gica" target="_blank" rel="noopener">Escríbeme ahora</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="why" id="por-que">
+  <div class="wrap">
+    <div class="why-grid">
+      <div>
+        <div class="eyebrow" style="margin-bottom:20px;">¿Por qué trabajar conmigo?</div>
+        <h2 style="font-size:clamp(24px,3vw,32px); font-weight:800; margin-bottom:26px;">Un aliado que se compromete con tu crecimiento</h2>
+        <ul class="why-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><strong>Experiencia y conocimiento en marketing digital</strong></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><strong>Estrategias personalizadas para tu negocio</strong></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><strong>Resultados medibles y comprobables</strong></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><strong>Atención cercana y profesional</strong></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg><strong>Comprometido con tu éxito</strong></li>
+        </ul>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <p>Mi compromiso es ayudarte a crecer. Tu éxito es mi prioridad.</p>
+        <span class="signature">Jickson Freile</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="diag" id="diagnostico">
+  <div class="wrap">
+    <div class="diag-panel">
+      <h2>Solicita tu diagnóstico gratuito</h2>
+      <p>Cuéntame sobre tu negocio y te contacto por WhatsApp con un primer análisis, sin costo.</p>
+      <form id="diagForm">
+        <div class="field">
+          <label for="nombre">Tu nombre</label>
+          <input type="text" id="nombre" required placeholder="Ej: María Gómez">
+        </div>
+        <div class="field">
+          <label for="negocio">Nombre de tu negocio</label>
+          <input type="text" id="negocio" required placeholder="Ej: Boutique Luna">
+        </div>
+        <div class="field">
+          <label for="servicio">¿Qué te interesa más?</label>
+          <select id="servicio">
+            <option>Meta Ads (Facebook/Instagram)</option>
+            <option>Meta Pixel y Conversion API</option>
+            <option>WordPress</option>
+            <option>WooCommerce / tienda online</option>
+            <option>Automatización de procesos</option>
+            <option>SEO / posicionamiento</option>
+            <option>Inteligencia artificial</option>
+            <option>Asesoría estratégica</option>
+            <option>No estoy seguro, quiero orientación</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="whatsapp">Tu número de WhatsApp</label>
+          <input type="tel" id="whatsapp" required placeholder="Ej: 300 123 4567">
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2z"/></svg>
+          Enviar por WhatsApp
+        </button>
+      </form>
+      <p class="diag-note">Al enviar, se abrirá WhatsApp con tus datos listos para enviarme el mensaje.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-cta">
+        <div class="logo" style="margin-bottom:20px;">
+          <div class="logo-mark">JF</div>
+          <div class="logo-text">
+            <strong>JICKSON FREILE</strong>
+            <span>Marketing Digital</span>
+          </div>
+        </div>
+        <h3>¿Listo para impulsar tu negocio?</h3>
+        <p style="color:var(--muted); font-size:14.5px; max-width:280px;">Hablemos y diseñemos la estrategia perfecta para tu empresa.</p>
+      </div>
+      <div class="foot-contact">
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2z"/></svg>301 863 8831</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>jicksonfreile@gmail.com</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Colombia</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Lunes a viernes · 8:00 a.m. – 6:00 p.m.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-pillars">
+      <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/></svg><span>Estrategia</span></div>
+      <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="12" rx="2"/></svg><span>Creatividad</span></div>
+      <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M9 20h6"/></svg><span>Tecnología</span></div>
+      <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M7 15v-4M12 15V7M17 15v-7"/></svg><span>Resultados</span></div>
+    </div>
+    <div class="foot-bottom">© 2026 Jickson Freile · Marketing Digital. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/573018638831?text=Hola%20Jickson%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.33 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.93A9.87 9.87 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.14-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.89 1.05.93 1.93 1.22 2.21 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.81.86.28.14.46.21.52.32.07.12.07.66-.17 1.34z"/></svg>
+</a>
+
+<script>
+  // scroll reveal for service cards
+  const cards = document.querySelectorAll('.card');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  cards.forEach(c => io.observe(c));
+
+  // diagnostic form -> WhatsApp
+  document.getElementById('diagForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const negocio = document.getElementById('negocio').value.trim();
+    const servicio = document.getElementById('servicio').value;
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const msg = `Hola Jickson, soy ${nombre} de ${negocio}. Quiero solicitar un diagnóstico gratuito sobre: ${servicio}. Mi WhatsApp es ${whatsapp}.`;
+    const url = `https://wa.me/573018638831?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  });
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --petrol-950:#0A2523;
+    --petrol-900:#0F312E;
+    --petrol-800:#164039;
+    --petrol-700:#1F544B;
+    --amber-500:#E7A94C;
+    --amber-400:#F0C173;
+    --coral-500:#FF6F59;
+    --paper:#F4F6F2;
+    --ink:#0A2523;
+    --ink-soft:#4C6560;
+    --line:rgba(10,37,35,0.10);
+  }
+
+  #launcher, #panel, #launcher *, #panel *{box-sizing:border-box;}
+
+  #launcher{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--petrol-800), var(--petrol-950));
+    box-shadow:0 8px 24px rgba(10,37,35,0.35);
+    border:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    transition:transform .25s ease, box-shadow .25s ease;
+    font-family:'Inter',sans-serif;
+  }
+  #launcher:hover{transform:scale(1.06);box-shadow:0 12px 30px rgba(10,37,35,0.45);}
+  #launcher::before{
+    content:'';
+    position:absolute;
+    inset:-6px;
+    border-radius:50%;
+    border:2px solid var(--amber-500);
+    opacity:0;
+    animation:pulse 2.6s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{opacity:.55;transform:scale(.9);}
+    80%{opacity:0;transform:scale(1.25);}
+    100%{opacity:0;transform:scale(1.25);}
+  }
+  #launcher svg{width:28px;height:28px;}
+
+  #launcher-badge{
+    position:absolute;
+    top:-6px;
+    left:-10px;
+    background:var(--coral-500);
+    color:white;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.04em;
+    padding:3px 8px;
+    border-radius:999px;
+    box-shadow:0 3px 8px rgba(255,111,89,.4);
+    white-space:nowrap;
+  }
+
+  #panel{
+    position:fixed;
+    bottom:100px;
+    right:24px;
+    width:378px;
+    max-width:calc(100vw - 32px);
+    height:560px;
+    max-height:calc(100vh - 140px);
+    background:var(--paper);
+    border-radius:20px;
+    box-shadow:0 24px 60px rgba(10,37,35,0.28);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    z-index:9999;
+    opacity:0;
+    transform:translateY(16px) scale(.97);
+    pointer-events:none;
+    transition:opacity .22s ease, transform .22s ease;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+  }
+  #panel.open{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+  }
+
+  #header{
+    background:linear-gradient(135deg, var(--petrol-900), var(--petrol-950));
+    padding:18px 18px 16px;
+    color:white;
+    position:relative;
+    flex-shrink:0;
+  }
+  #header .eyebrow{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:10.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber-400);
+    font-weight:600;
+    margin-bottom:4px;
+  }
+  #header h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:17px;
+    font-weight:700;
+    margin:0 0 2px;
+  }
+  #header p{
+    margin:0;
+    font-size:12.5px;
+    color:rgba(255,255,255,0.72);
+  }
+  #closeBtn{
+    position:absolute;
+    top:14px;
+    right:14px;
+    background:rgba(255,255,255,0.1);
+    border:none;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  #closeBtn:hover{background:rgba(255,255,255,0.18);}
+
+  #sparkline{width:100%;height:22px;margin-top:10px;display:block;}
+  #sparkline path{
+    stroke-dasharray:220;
+    stroke-dashoffset:220;
+    animation:draw 1.4s ease forwards .3s;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+
+  #messages{
+    flex:1;
+    overflow-y:auto;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  #panel .msg{
+    max-width:84%;
+    padding:10px 13px;
+    border-radius:14px;
+    font-size:13.5px;
+    line-height:1.45;
+    animation:fadeIn .25s ease;
+  }
+  @keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+  #panel .msg.bot{
+    background:white;
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-bottom-left-radius:4px;
+    align-self:flex-start;
+  }
+  #panel .msg.user{
+    background:var(--petrol-800);
+    color:white;
+    border-bottom-right-radius:4px;
+    align-self:flex-end;
+  }
+  #panel .typing{
+    align-self:flex-start;
+    display:flex;
+    gap:4px;
+    padding:12px 14px;
+    background:white;
+    border:1px solid var(--line);
+    border-radius:14px;
+    border-bottom-left-radius:4px;
+  }
+  #panel .typing span{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--ink-soft);
+    animation:bounce 1.1s infinite ease-in-out;
+  }
+  #panel .typing span:nth-child(2){animation-delay:.15s;}
+  #panel .typing span:nth-child(3){animation-delay:.3s;}
+  @keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-4px);opacity:1;}}
+
+  #quick{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    padding:0 16px 10px;
+    flex-shrink:0;
+  }
+  #panel .chip{
+    font-family:'Inter',sans-serif;
+    font-size:11.5px;
+    font-weight:500;
+    padding:6px 11px;
+    border-radius:999px;
+    border:1px solid var(--petrol-700);
+    color:var(--petrol-900);
+    background:white;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  #panel .chip:hover{background:var(--amber-400);border-color:var(--amber-400);}
+
+  #waCta{
+    margin:0 16px 12px;
+    background:linear-gradient(135deg,#25D366,#1CB855);
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:11px 14px;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    cursor:pointer;
+    flex-shrink:0;
+    box-shadow:0 6px 16px rgba(37,211,102,0.35);
+  }
+  #waCta:hover{filter:brightness(1.04);}
+
+  #inputRow{
+    display:flex;
+    gap:8px;
+    padding:12px;
+    border-top:1px solid var(--line);
+    background:white;
+    flex-shrink:0;
+  }
+  #textInput{
+    flex:1;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px 12px;
+    font-family:'Inter',sans-serif;
+    font-size:13.5px;
+    resize:none;
+    outline:none;
+  }
+  #textInput:focus{border-color:var(--petrol-700);}
+  #sendBtn{
+    background:var(--petrol-900);
+    border:none;
+    color:white;
+    width:40px;
+    border-radius:10px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  #sendBtn:hover{background:var(--petrol-800);}
+  #sendBtn:disabled{opacity:.4;cursor:not-allowed;}
+</style>
+
+<button id="launcher" aria-label="Abrir asistente">
+  <span id="launcher-badge">Asesor IA</span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+</button>
+
+<div id="panel">
+  <div id="header">
+    <button id="closeBtn" aria-label="Cerrar">✕</button>
+    <div class="eyebrow">Marketing Digital</div>
+    <h1>Jickson Freile</h1>
+    <p>Cuéntame qué necesitas y te oriento al instante</p>
+    <svg id="sparkline" viewBox="0 0 300 22" preserveAspectRatio="none">
+      <path d="M0 18 L40 15 L70 17 L110 8 L150 11 L190 4 L230 6 L300 1"
+            fill="none" stroke="#E7A94C" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div id="messages"></div>
+  <div id="quick"></div>
+  <button id="waCta">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.34a9.9 9.9 0 0 0 4.62 1.14h.01c5.46 0 9.9-4.45 9.9-9.9C21.95 6.45 17.5 2 12.04 2z"/></svg>
+    Continuar por WhatsApp
+  </button>
+
+  <div id="inputRow">
+    <textarea id="textInput" rows="1" placeholder="Escribe tu mensaje..."></textarea>
+    <button id="sendBtn" aria-label="Enviar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  // ======================================================================s
+  // CONFIGURA AQUÍ TU NÚMERO DE WHATSAPP (formato: código país + número, sin + ni espacios)
+  const WHATSAPP_NUMBER = "573018638831"; // <-- REEMPLAZA con tu número real
+  // ======================================================================
+
+  const SYSTEM_PROMPT = `Eres el asistente virtual de Jickson Freile, un profesional freelance de marketing digital y gestión de redes sociales en Sabaneta, Antioquia, Colombia.
+
+Servicios que ofrece:
+- Gestión de Meta Ads (Facebook e Instagram)
+- Diagnóstico y estrategia de redes sociales
+- Administración de tiendas WooCommerce/WordPress
+- Configuración de Meta Pixel y Conversions API
+- Configuración de seguridad de cuentas (recuperación, prevención de bloqueos)
+- Automatización de procesos con Power Automate
+- Creación de contenido con IA (imágenes y video)
+
+Trabaja con negocios de moda, logística, salud/estética e importadoras, principalmente en Colombia.
+
+Tu trabajo:
+1. Saluda con calidez, en español colombiano, tono profesional pero cercano (nunca robótico).
+2. Pregunta brevemente qué tipo de negocio tiene y qué problema quiere resolver (ej: pocas ventas, cuenta bloqueada, no sabe usar Meta Ads, quiere una tienda online).
+3. Responde con valor real y específico, en 2-4 frases máximo por mensaje. Nada de párrafos largos.
+4. Cuando identifiques que la persona tiene una necesidad concreta, sugiérele amablemente continuar la conversación por WhatsApp para darle una propuesta personalizada — pero no lo repitas en cada mensaje, solo cuando tenga sentido.
+5. Nunca inventes precios exactos; di que las tarifas se ajustan según el alcance del proyecto.
+6. Si preguntan algo fuera de estos temas, responde brevemente y redirige con amabilidad hacia cómo Jickson puede ayudarles.`;
+
+  const launcher = document.getElementById('launcher');
+  const panel = document.getElementById('panel');
+  const closeBtn = document.getElementById('closeBtn');
+  const messagesEl = document.getElementById('messages');
+  const textInput = document.getElementById('textInput');
+  const sendBtn = document.getElementById('sendBtn');
+  const quickEl = document.getElementById('quick');
+  const waCta = document.getElementById('waCta');
+
+  let history = [];
+  let opened = false;
+
+  launcher.addEventListener('click', () => {
+    panel.classList.add('open');
+    if (!opened) {
+      opened = true;
+      botSay("¡Hola! 👋 Soy el asistente de Jickson Freile. Ayudo a negocios a vender más con estrategia digital: Meta Ads, redes sociales, tiendas online y más. ¿Qué tipo de negocio tienes?");
+      renderQuickReplies(["Tengo una tienda online", "Necesito subir mis ventas", "Mi cuenta fue bloqueada", "Quiero cotizar un servicio"]);
+    }
+  });
+  closeBtn.addEventListener('click', () => panel.classList.remove('open'));
+
+  function addMessage(text, who){
+    const div = document.createElement('div');
+    div.className = 'msg ' + who;
+    div.textContent = text;
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function botSay(text){
+    addMessage(text, 'bot');
+    history.push({role:'assistant', content:text});
+  }
+
+  function showTyping(){
+    const t = document.createElement('div');
+    t.className = 'typing';
+    t.id = 'typingIndicator';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    messagesEl.appendChild(t);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+  function hideTyping(){
+    const t = document.getElementById('typingIndicator');
+    if (t) t.remove();
+  }
+
+  function renderQuickReplies(options){
+    quickEl.innerHTML = '';
+    options.forEach(opt => {
+      const chip = document.createElement('button');
+      chip.className = 'chip';
+      chip.textContent = opt;
+      chip.onclick = () => { quickEl.innerHTML = ''; sendMessage(opt); };
+      quickEl.appendChild(chip);
+    });
+  }
+
+  async function sendMessage(text){
+    if (!text.trim()) return;
+    quickEl.innerHTML = '';
+    addMessage(text, 'user');
+    history.push({role:'user', content:text});
+    textInput.value = '';
+    sendBtn.disabled = true;
+    showTyping();
+
+    try {
+      const response = await fetch("/.netlify/functions/chat_handler", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          system: SYSTEM_PROMPT,
+          messages: history
+        })
+      });
+      const data = await response.json();
+      hideTyping();
+      const reply = data.reply || "Disculpa, ¿puedes repetir eso?";
+      botSay(reply);
+    } catch (err) {
+      hideTyping();
+      botSay("Tuve un problema de conexión. Mientras tanto, puedes escribirme directo por WhatsApp con el botón de abajo 👇");
+      console.error(err);
+    } finally {
+      sendBtn.disabled = false;
+    }
+  }
+
+  sendBtn.addEventListener('click', () => sendMessage(textInput.value));
+  textInput.addEventListener('keydown', (e) => {
+    if (e.key ==='Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage(textInput.value);
+    }
+  });
+
+  waCta.addEventListener('click', () => {
+    const userMsgs = history.filter(h => h.role === 'user').map(h => h.content);
+    const summary = userMsgs.length
+      ? `Hola Jickson, vengo del asistente de tu página. Te cuento: ${userMsgs.join(' / ')}`
+      : "Hola Jickson, vengo de tu página web y quiero más info sobre tus servicios.";
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(summary)}`;
+    window.open(url, '_blank');
+  });
+</script>
+</body>
+</html>
