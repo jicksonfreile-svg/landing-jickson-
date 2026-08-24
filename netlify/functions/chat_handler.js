@@ -64,7 +64,7 @@ exports.handler = async function (event) {
         },
         body: JSON.stringify({
           // Cambia el modelo aquí si usas otro en tu dashboard de Distrivenus
-          model: "llama-3.3-70b-versatile",
+          model:"openai/gpt-oss-120b",
           messages: groqMessages,
           max_tokens: 300,
           temperature: 0.7,
