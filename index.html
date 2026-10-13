@@ -550,6 +550,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   ];
   var CHIPS = ["¿Cuánto cuesta?","Quiero vender más por Instagram","Instalar el Pixel de Meta","Tengo tienda en WordPress","Automatizar WhatsApp","No sé por dónde empezar"];
 
+  var L = "a-z0-9áéíóúüñ";
+  function hit(n, k){
+    var esc = k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    var re = new RegExp("(^|[^" + L + "])" + esc + (k.length <= 3 ? "(?![" + L + "])" : ""), "i");
+    return re.test(n);
+  }
   function norm(s){ return s.toLowerCase(); }
   function add(text, who, withWa){
     var m = document.createElement("div"); m.className = "msg " + who; m.textContent = text;
@@ -568,7 +574,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
   }
   function reply(q){
     var n = norm(q), hits = [];
-    KB.forEach(function(e){ if (e.k.some(function(k){ return n.indexOf(k) !== -1; })) hits.push(e); });
+    KB.forEach(function(e){ if (e.k.some(function(k){ return hit(n,k); })) hits.push(e); });
     if (!firstQ && !/^(hola|buenas|buenos)/.test(n)) firstQ = q.slice(0,160);
     var greet = hits.length === 1 && hits[0].k[0] === "hola";
     hits = hits.filter(function(e){ return e.k[0] !== "hola"; }).slice(0,2);
